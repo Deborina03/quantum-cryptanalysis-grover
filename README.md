@@ -2,7 +2,7 @@
 
 A research-style implementation of quantum-assisted key recovery using Grover's algorithm on a reduced PRESENT-inspired lightweight block cipher. The project includes oracle construction, noise-aware simulation, resource analysis, benchmarking, scaling validation, and defensive mitigation studies implemented in Qiskit.
 
-Unlike purely theoretical complexity visualizations, every figure in this repository is generated from actual algorithmic implementations executed on the Qiskit Aer simulator.
+Unlike purely theoretical complexity visualizations, every result in this repository is generated from actual algorithmic implementations executed on the Qiskit Aer simulator.
 
 ---
 
@@ -10,7 +10,7 @@ Unlike purely theoretical complexity visualizations, every figure in this reposi
 
 | Metric | Value |
 |----------|----------|
-| Recovered Key Success Probability | 99.6% |
+| Recovered Key Success Probability | ~99.6% |
 | Optimal Grover Iterations | 6 |
 | Fitted Grover Scaling Exponent | 0.519 |
 | Theoretical Scaling Exponent | 0.500 |
@@ -40,7 +40,7 @@ while reducing the key/block sizes to a range that allows a genuine Grover oracl
 
 Demonstration of successful key recovery using Grover's algorithm on a reduced PRESENT-style cipher.
 
-![Grover Recovery](figures/live_grover.png)
+**Key Result:** ~99.6% measured success probability at the optimal Grover iteration count.
 
 ---
 
@@ -48,7 +48,7 @@ Demonstration of successful key recovery using Grover's algorithm on a reduced P
 
 Impact of depolarizing noise on Grover search performance.
 
-![Noise Analysis](figures/noise_analysis.png)
+**Key Result:** Demonstrates rapid degradation of amplitude amplification under realistic noise levels.
 
 ---
 
@@ -56,15 +56,13 @@ Impact of depolarizing noise on Grover search performance.
 
 Comparison of measured classical search, measured Grover search, and theoretical BHT collision-search complexity.
 
-![BHT Comparison](figures/bht_vs_grover.png)
-
 ---
 
 ### 4. Experimental Validation of Grover Scaling
 
 Measured attack scaling compared with the theoretical √N prediction.
 
-![Scaling Validation](figures/scaling_validation.png)
+**Key Result:** Fitted Grover exponent of 0.519 versus the theoretical value of 0.500.
 
 ---
 
@@ -72,15 +70,13 @@ Measured attack scaling compared with the theoretical √N prediction.
 
 Effect of key rotation frequency on attacker cost and defender exposure window.
 
-![Key Rotation Defense](figures/key_rotation.png)
-
 ---
 
 ### 6. Key-Size Mitigation Analysis
 
 Resource-growth study showing how larger key sizes increase quantum attack cost and circuit requirements.
 
-![Key Size Mitigation](figures/keysize_mitigation.png)
+**Key Result:** Mean relative error of 3.4%, R² = 0.9986, Pearson correlation = 0.9997.
 
 ---
 
@@ -96,12 +92,6 @@ src/
 ├── solution_keysize_mitigation.py
 
 figures/
-├── live_grover.png
-├── noise_analysis.png
-├── bht_vs_grover.png
-├── scaling_validation.png
-├── key_rotation.png
-└── keysize_mitigation.png
 
 requirements.txt
 README.md
@@ -115,7 +105,7 @@ README.md
 
 Builds a known-plaintext Grover oracle from a reduced PRESENT-inspired cipher, performs quantum key recovery on Qiskit Aer, validates the recovered key, and measures amplitude amplification across Grover iterations.
 
-**Key Result:** 99.6% measured success probability at the optimal Grover iteration count.
+**Key Result:** Successful recovery of the secret key with high measured probability.
 
 ---
 
@@ -123,7 +113,7 @@ Builds a known-plaintext Grover oracle from a reduced PRESENT-inspired cipher, p
 
 Executes the same attack circuit under Qiskit Aer noise models using depolarizing error channels and compares ideal versus noisy execution.
 
-**Key Result:** Demonstrates rapid degradation of amplitude amplification under realistic noise levels.
+**Key Result:** Demonstrates how quickly Grover amplification degrades under realistic hardware noise.
 
 ---
 
@@ -162,7 +152,7 @@ Studies the effectiveness of periodic key rotation as a mitigation strategy by m
 
 Experimentally validates Grover's quadratic speedup by comparing measured Grover iteration counts against theoretical √N scaling predictions.
 
-**Key Result:** Measured exponent 0.519 vs theoretical exponent 0.500.
+**Key Result:** Measured exponent 0.519 versus theoretical exponent 0.500.
 
 ---
 
