@@ -1,4 +1,10 @@
-numpy
-matplotlib
-qiskit
-qiskit-aer
+qiskit>=1.0.0
+qiskit-aer>=0.14.0
+numpy>=1.24.0
+matplotlib>=3.7.0
+
+# Tested against:
+# qiskit==2.5.0
+# qiskit-aer==0.17.2
+# numpy==2.4.4
+# matplotlib==3.10.8
